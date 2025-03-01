@@ -22,6 +22,7 @@
         <li><a href="#news">News</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#service">Service</a></li>
+        <li><a href="#awards">Awards</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -52,16 +53,15 @@
 <div class="container">
 <h4>News</h4><hr>
 <ul>
+
+  <li> <span style="color:red;"><strong>02/29/2025</strong> - I will serve on the Program Committees of IEEE Symposium on Security and Privacy 2026 and RAID'25!</span> </li><br>
+  <li> <span style="color:red;"><strong>01/23/2025</strong> - 1 new paper in NAACL'25! </span>  On poisoning attacks against large language models that get them to produce copyrighted content! <strong><a href="#p15">(15)</a></strong>. </span> </li><br>
+  <li> <span style="color:red;"><strong>01/22/2025</strong> - 1 new paper in SaTML'25! </span>  On demystfying the challenges and pitfalls in behavior-based malware detection in the real world <strong><a href="#p14">(14)</a></strong>. </span> </li><br>
   <li> <span style="color:red;"><strong>09/16/2024</strong> - I will serve on the Program Committee of IEEE Conference on Secure and Trustworthy Machine Learning (SATML) 2025!</span> </li><br>
   <li> <span style="color:red;"><strong>06/05/2024</strong> - I will serve on the Program Committee of IEEE Symposium on Security and Privacy 2025!</span> </li><br>
-  <li> <span style="color:red;"><strong>05/09/2024</strong> - New pre-print on Arxiv! </span>  On demystfying the challenges and pitfalls in behavior-based malware detection in the real world <strong><a href="#p14">(14)</a></strong>. </span> </li><br>
   <li> <span style="color:red;"><strong>02/29/2024</strong> - I will serve on the Program Committees of USENIX Security'24, ACSAC'24 and RAID'24!</span> </li><br>
   <li> <span style="color:red;"><strong>01/01/2024</strong> - 2 new papers in ICLR'24!</span> On enabling certified robustness for adversarial attacks against raw-byte-based malware detectors <strong><a href="#p12">(12)</a></strong> and studying the tensions between group robustness and resilience against poisoning attacks <strong><a href="#p13">(13)</a></strong>. </li><br>
   <li> <span style="color:red;"><strong>12/20/2023</strong> - 1 new paper in SaTML'24!</span> On building a systemical understanding of slowdown attacks against input-adaptive language models <strong><a href="#p11">(11)</a></strong>. </li><br>
-  <li> <span style="color:red;"><strong>10/01/2023</strong> - Started my postdoc at SecLab@UCSB!</span> I will be working on building robust and adaptable ML-based cyberdefenses. </li><br>
-  <li> <span style="color:red;"><strong>07/13/2023</strong> - Successfully defended my dissertation and finished my PhD!</span> Many thanks to all my committee members and my advisor Tudor.</li><br>
-  <li> <span style="color:red;"><strong>06/06/2023</strong> - Received an intelligence community fellowship for a fully-funded postdoc!</span> </li><br>
-</ul>
 </div>
 
 <br>
@@ -70,23 +70,27 @@
 <div class="container">
 <h4> Publications --- <a href="https://scholar.google.com/citations?user=tPiXuV0AAAAJ">Google Scholar</a></h4><hr>
 <ul>
-  <li> <strong><a id="p14">(14)</a></strong>  <u>Yigitcan Kaya</u>, Yizheng Chen, Shoumik Saha, Fabio Pierazzi, Lorenzo Cavallaro, David Wagner, Tudor Dumitras: <a href="https://arxiv.org/abs/2405.06124"><strong>Demystifying Behavior-Based Malware Detection at Endpoints</strong></a> (Pre-print)      
+  <li> <strong><a id="p15">(15)</a></strong> Michael-Andrei Panaitescu-Liess, Pankayaraj Pathmanathan, <u>Yigitcan Kaya</u>, Zora Che, Bang An, Sicheng Zhu, Aakriti Agrawal, Furong Huang : <a href="https://2025.naacl.org/"><strong> PoisonedParrot: Subtle Data Poisoning Attacks to Elicit Copyright-Infringing Content from Large Language Models </strong></a>  (NAACL'25 Main Conference)
+    <button data-toggle="collapse" data-target="#naacl25", class="btn">Abstract</button>
+    <div id="naacl25" class="collapse">
+      <em> As the capabilities of large language models (LLMs) continue to expand, their usage has become increasingly prevalent. However, as reflected in numerous ongoing lawsuits regarding LLM-generated content, addressing copyright infringement remains a significant challenge. In this paper, we introduce PoisonedParrot: the first stealthy data poisoning attack that induces an LLM to generate copyrighted content even when the model has not been directly trained on the specific copyrighted material. PoisonedParrot integrates small fragments of copyrighted text into the poison samples using an off-the-shelf LLM. Despite its simplicity, evaluated in a wide range of experiments, PoisonedParrot is surprisingly effective at priming the model to generate copyrighted content with no discernible side effects. Moreover, we discover that existing defenses are largely ineffective against our attack. Finally, we make the first attempt at mitigating copyright-infringement poisoning attacks by proposing a defense: ParrotTrap. We encourage the community to explore this emerging threat model further. </em> </div> </li><br>
+  
+      <li> <strong><a id="p14">(14)</a></strong>  <u>Yigitcan Kaya</u>, Yizheng Chen, Marcus Botacin, Shoumik Saha, Fabio Pierazzi, Lorenzo Cavallaro, David Wagner, Tudor Dumitras: <a href="https://satml.org/accepted-papers/"><strong> ML-Based Behavioral Malware Detection Is Far From a Solved Problem </strong></a>  (SaTML'25) 
+    <button data-toggle="collapse" data-target="#satml25", class="btn">Abstract</button>
+    <div id="satml25" class="collapse">
+      <em> Malware detection is a ubiquitous application of Machine Learning (ML) in security. In behavioral malware analysis, the detector relies on features extracted from program execution traces. The research literature has focused on detectors trained with features collected from sandbox environments and evaluated on samples also analyzed in a sandbox. However, in deployment, a malware detector at endpoint hosts often must rely on traces captured from endpoint hosts, not from a sandbox. Thus, there is a gap between the literature and real-world needs. We present the first measurement study of the performance of ML-based malware detectors at real-world endpoints. Leveraging a dataset of sandbox traces and a dataset of in-the-wild program traces, we evaluate two scenarios: (i) an endpoint detector trained on sandbox traces (convenient and easy to train), and (ii) an endpoint detector trained on endpoint traces (more challenging to train, since we need to collect telemetry data). We discover a wide gap between the performance as measured using prior evaluation methods in the literature—over 90%—vs. expected performance in endpoint detection—about 20% (scenario (i)) to 50% (scenario (ii)). We characterize the ML challenges that arise in this domain and contribute to this gap, including label noise, distribution shift, and spurious features. Moreover, we show several techniques that achieve 5–30% relative performance improvements over the baselines. Our evidence suggests that applying detectors trained on sandbox data to endpoint detection is challenging. The most promising direction is training detectors directly on endpoint data, which marks a departure from current practice. To promote progress, we will facilitate researchers to perform realistic detector evaluations against our real-world dataset. </em> </div> </li><br>
+  
+      <li> <strong><a id="p13">(13)</a></strong> Michael-Andrei Panaitescu-Liess*, <u>Yigitcan Kaya*</u>, Sicheng Zhu, Furong Huang, Tudor Dumitras : <a href="https://openreview.net/forum?id=rM9VJPB20F"><strong>Like Oil and Water: Group Robustness Methods and Poisoning Defenses Don't Mix</strong></a> (ICLR'24 - * indicates equal contribution)      
     <button data-toggle="collapse" data-target="#iclrgroup", class="btn">Abstract</button>
     <div id="iclrgroup" class="collapse">
-      <em> Machine learning is widely used for malware detection in practice. Prior behavior-based detectors most commonly rely on traces of programs executed in controlled sandboxes. However, sandbox traces are unavailable to the last line of defense offered by security vendors: malware detection at endpoints. A detector at endpoints consumes the traces of programs running on real-world hosts, as sandbox analysis might introduce intolerable delays. Despite their success in the sandboxes, research hints at potential challenges for ML methods at endpoints, e.g., highly variable malware behaviors. Nonetheless, the impact of these challenges on existing approaches and how their excellent sandbox performance translates to the endpoint scenario remain unquantified.We present the first measurement study of the performance of ML-based malware detectors at real-world endpoints. Leveraging a dataset of sandbox traces and a dataset of in-the-wild program traces; we evaluate two scenarios where the endpoint detector was trained on (i) sandbox traces (convenient and accessible); and (ii) endpoint traces (less accessible due to needing to collect telemetry data). This allows us to identify a wide gap between prior methods' sandbox-based detection performance--over 90%--and endpoint performances--below 20% and 50% in (i) and (ii), respectively. We pinpoint and characterize the challenges contributing to this gap, such as label noise, behavior variability, or sandbox evasion. To close this gap, we propose that yield a relative improvement of 5-30% over the baselines. Our evidence suggests that applying detectors trained on sandbox data to endpoint detection -- scenario (i) -- is challenging. The most promising direction is training detectors on endpoint data -- scenario (ii) -- which marks a departure from widespread practice. We implement a leaderboard for realistic detector evaluations to promote research.</em> </div> </li><br>
-
-      <li> <strong><a id="p13">(13)</a></strong> Michael-Andrei Panaitescu-Liess*, <u>Yigitcan Kaya*</u>, Sicheng Zhu, Furong Huang, Tudor Dumitras : <a href="https://openreview.net/forum?id=rM9VJPB20F"><strong>Like Oil and Water: Group Robustness Methods and Poisoning Defenses Don't Mix</strong></a> (ICLR'24 - * indicates equal contribution)      
-        <button data-toggle="collapse" data-target="#iclrgroup", class="btn">Abstract</button>
-        <div id="iclrgroup" class="collapse">
-          <em>Group robustness has become a major concern in machine learning (ML) as conventional training paradigms were found to produce high error on minority groups. Without explicit group annotations, proposed solutions rely on heuristics that aim to identify and then amplify the minority samples during training. In our work, we first uncover a critical shortcoming of these methods: an inability to distinguish legitimate minority samples from poison samples in the training set. By amplifying poison samples as well, group robustness methods inadvertently boost the success rate of an adversary---e.g., from 0% without amplification to over 97% with it. Notably, we supplement our empirical evidence with an impossibility result proving this inability of a standard heuristic under some assumptions. Moreover, scrutinizing recent poisoning defenses both in centralized and federated learning, we observe that they rely on similar heuristics to identify which samples should be eliminated as poisons. In consequence, minority samples are eliminated along with poisons, which damages group robustness---e.g., from 55% without the removal of the minority samples to 41% with it. Finally, as they pursue opposing goals using similar heuristics, our attempt to alleviate the trade-off by combining group robustness methods and poisoning defenses falls short. By exposing this tension, we also hope to highlight how benchmark-driven ML scholarship can obscure the trade-offs among different metrics with potentially detrimental consequences.
-.</em> </div> </li><br>
+      <em>Group robustness has become a major concern in machine learning (ML) as conventional training paradigms were found to produce high error on minority groups. Without explicit group annotations, proposed solutions rely on heuristics that aim to identify and then amplify the minority samples during training. In our work, we first uncover a critical shortcoming of these methods: an inability to distinguish legitimate minority samples from poison samples in the training set. By amplifying poison samples as well, group robustness methods inadvertently boost the success rate of an adversary---e.g., from 0% without amplification to over 97% with it. Notably, we supplement our empirical evidence with an impossibility result proving this inability of a standard heuristic under some assumptions. Moreover, scrutinizing recent poisoning defenses both in centralized and federated learning, we observe that they rely on similar heuristics to identify which samples should be eliminated as poisons. In consequence, minority samples are eliminated along with poisons, which damages group robustness---e.g., from 55% without the removal of the minority samples to 41% with it. Finally, as they pursue opposing goals using similar heuristics, our attempt to alleviate the trade-off by combining group robustness methods and poisoning defenses falls short. By exposing this tension, we also hope to highlight how benchmark-driven ML scholarship can obscure the trade-offs among different metrics with potentially detrimental consequences. </em> </div> </li><br>
   
     <li> <strong><a id="p12">(12)</a></strong> Shoumik Saha, Wenxiao Wang, <u>Yigitcan Kaya</u>, Soheil Feizi, Tudor Dumitras: <a href="https://openreview.net/forum?id=m7aPLHwsLr&noteId=Cz8XGzFkKA"><strong>DRSM: De-Randomized Smoothing on Malware Classifier Providing Certified Robustness</strong></a> (ICLR'24)      
         <button data-toggle="collapse" data-target="#iclrmalware", class="btn">Abstract</button>
         <div id="iclrmalware" class="collapse">
           <em>Machine Learning (ML) models have been utilized for malware detection for over two decades. Consequently, this ignited an ongoing arms race between malware authors and antivirus systems, compelling researchers to propose defenses for malware-detection models against evasion attacks. However, most if not all existing defenses against evasion attacks suffer from sizable performance degradation and/or can defend against only specific attacks, which makes them less practical in real-world settings. In this work, we develop a certified defense, DRSM (De-Randomized Smoothed MalConv), by redesigning the de-randomized smoothing technique for the domain of malware detection. Specifically, we propose a window ablation scheme to provably limit the impact of adversarial bytes while maximally preserving local structures of the executables. After showing how DRSM is theoretically robust against attacks with contiguous adversarial bytes, we verify its performance and certified robustness experimentally, where we observe only marginal accuracy drops as the cost of robustness. To our knowledge, we are the first to offer certified robustness in the realm of static detection of malware executables. More surprisingly, through evaluating DRSM against empirical attacks of different types, we observe that the proposed defense is empirically robust to some extent against a diverse set of attacks, some of which even fall out of the scope of its original threat model. In addition, we collected recent benign raw executables from diverse sources, which will be made public as a dataset called PACE (Publicly Accessible Collection(s) of Executables) to alleviate the scarcity of publicly available benign datasets for studying malware detection and provide future research with more representative data of the time.</em> </div> </li><br>
     
-  <li> <strong><a id="p11">(11)</a></strong> Kamala Varma, Arda Numanoğlu, <u>Yigitcan Kaya</u>, Tudor Dumitras: <a href="https://openreview.net/"><strong>Understanding, Uncovering, and Mitigating the Causes of Inference Slowdown for Language Models</strong></a> (SaTML'24)      
+    <li> <strong><a id="p11">(11)</a></strong> Kamala Varma, Arda Numanoğlu, <u>Yigitcan Kaya</u>, Tudor Dumitras: <a href="https://openreview.net/"><strong>Understanding, Uncovering, and Mitigating the Causes of Inference Slowdown for Language Models</strong></a> (SaTML'24)      
         <button data-toggle="collapse" data-target="#satmlslow", class="btn">Abstract</button>
         <div id="satmlslow" class="collapse">
           <em>Dynamic neural networks (DyNNs) have shown promise for alleviating the high computational costs of pre-trained language models (PLMs), such as BERT and GPT. Emerging slowdown attacks have shown to inhibit the ability of DyNNs to omit computation, e.g., by skipping layers that are deemed unnecessary. As a result, these attacks can cause significant delays in inference speed for DyNNs and may erase their cost savings altogether. Most research in slowdown attacks has been in the image domain, despite the ever-growing computational costs---and relevance of DyNNs---in the language domain. Unfortunately, it is still not understood what language artifacts trigger extra processing in a PLM, or what causes this behavior. We aim to fill this gap through an empirical exploration of the slowdown effect on language models. Specifically, we uncover a crucial difference between the slowdown effect in the image and language domains, illuminate the efficacy of pre-existing and novel techniques for causing slowdown, and report circumstances where slowdown does not occur. Building on these observations, we propose the first approach for mitigating the slowdown effect. Our results suggest that slowdown attacks can provide new insights that can inform the development of more efficient PLMs.</em> </div> </li><br>
@@ -160,7 +164,7 @@ promising directions for investigating defenses against the ML threats. </em> </
 <div class="container">
 <h4> Service </h4><hr>
 <ul>
-  <li><b>Conference PC:</b>  <a href="https://satml.org" target="_blank"><strong>SATML'25</strong></a>, <a href="https://sp2025.ieee-security.org" target="_blank"><strong>IEEE S&P'25</strong></a>, <a href="https://www.usenix.org/conference/usenixsecurity24" target="_blank"><strong>USENIX Security'24</strong></a>, <a href="https://www.acsac.org/" target="_blank"><strong>ACSAC'24</strong></a>,  <a href="https://raid2024.github.io/" target="_blank"><strong>RAID'24</strong></a> </li>
+  <li><b>Conference PC:</b>  <a href="https://satml.org" target="_blank"><strong>SaTML'25</strong></a>, <a href="https://sp2025.ieee-security.org" target="_blank"><strong>IEEE S&P'{25,26}</strong></a>, <a href="https://www.usenix.org/conference/usenixsecurity24" target="_blank"><strong>USENIX Security'24</strong></a>, <a href="https://www.acsac.org/" target="_blank"><strong>ACSAC'24</strong></a>,  <a href="https://raid2024.github.io/" target="_blank"><strong>RAID'{24,25}</strong></a> </li>
   <li><b>Workshop PC:</b> <a href="https://dynn-icml2022.github.io/" target="_blank"><strong>ICML'22 Workshop on Dynamic Neural Networks</strong></a>, <a href="https://advml-frontier.github.io/" target="_blank"><strong>ICML'22 Workshop on New Frontiers in Adversarial Machine Learning</strong></a>, <a href="https://icml2019workshop.github.io/" target="_blank"><strong>ICML'19 Workshop on Security and Privacy of Machine Learning</strong></a>, <a href="https://amlcvpr2019.github.io/" target="_blank"><strong>CVPR'19 Workshop on Adversarial Machine Learning in Real-World Computer Vision Systems</strong></a>, <a href="https://secml2018.github.io/" target="_blank"><strong>NIPS'18 Workshop on Security in Machine Learning</strong></a></li>
   <li><b>Conference Reviewer:</b> ICML{'24, '23, '22, '21, '20}, ICLR{'24, '23, '22}, NeurIPS{'23, '22, '21, '20} </li>
   <li><b>Journal Reviewer:</b> Computers&Security ('24), IEEE TDSC ('24), ACM TOPS ('20) </li>
@@ -171,6 +175,26 @@ promising directions for investigating defenses against the ML threats. </em> </
 
 <br>
 
+<a id="awards"></a>
+<div class="container">
+<h4> Awards and Honors </h4><hr>
+
+<ul> 
+  <li> Received <a href="  https://satml.org/scholarships" target="_blank"> <strong>SaTML 2025 Travel Scholarship</strong></a> to travel to Denmark to present <strong><a href="#p14">(14)</a></strong> (2025). <br>
+
+  <li> Accepted into the <a href="https://eng.umd.edu/future-faculty-program" target="_blank"> <strong>Clark School Future Faculty Program</strong></a> that prepares selected fellows to successful academic careers. (2022).  <br>
+
+  <li> Received an <strong>Honorable Mention</strong> in 2019 National Science Foundation (NSF) Graduate Research Fellowship Program (GRFP) competition. <br>
+
+  <li> Received the <strong> Dean's Fellowship </strong> that provides $2500 each year to new graduate students. (2017 - 2018) <br><br>
+
+</ul>
+</div>
+<br>
+
+
+
+
 <a id="education"></a>
 <div class="container">
 <h4> Education </h4><hr>
@@ -180,13 +204,7 @@ promising directions for investigating defenses against the ML threats. </em> </
   <a href="https://umd.edu/" target="_blank">University of Maryland, College Park</a><br>
   August 2017 - July 2023 <br><br>
 
-  <strong>Awards and Honors</strong><br>
 
-  Accepted into the <a href="https://eng.umd.edu/future-faculty-program" target="_blank"> <strong>Clark School Future Faculty Program</strong></a> that prepares selected fellows to successful academic careers. (2022).  <br>
-  
-  Received an <strong>Honorable Mention</strong> in 2019 National Science Foundation (NSF) Graduate Research Fellowship Program (GRFP) competition. <br>
-
-  Received the <strong> Dean's Fellowship </strong> that provides $2500 each year to new graduate students. (2017 - 2018) <br><br>
 
   <li><strong>BSc</strong></li>
   Computer Engineering <br>
@@ -236,7 +254,7 @@ promising directions for investigating defenses against the ML threats. </em> </
 <br><br>
 
 <footer class="container-fluid text-center">
-  <p><em>Last Updated September 16th, 2024.</em></p>
+  <p><em>Last Updated February 28th, 2025.</em></p>
 <br>
 </footer>
 
