@@ -10,10 +10,48 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.pronunciation-button').forEach((button) => {
+        const audio = document.getElementById(button.dataset.audio);
+        if (audio) audio.load();
+
+        button.addEventListener('click', () => {
+          if (!audio) return;
+
+          const playFromStart = () => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+          };
+
+          if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
+            playFromStart();
+          } else {
+            audio.addEventListener('loadedmetadata', playFromStart, { once: true });
+            audio.load();
+          }
+        });
+      });
+    });
+  </script>
+
 </head>
 
 
 <body>
+
+
+  <audio id="audio-yigitcan" preload="auto">
+    <source src="assets/audio/yigitcan-pronunciation.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audio-can" preload="auto">
+    <source src="assets/audio/can-pronunciation.mp3" type="audio/mpeg">
+  </audio>
+
+
+
+
 
 
   <nav class="navbar navbar-inverse navbar-static-top">
@@ -47,12 +85,22 @@
           <span> · </span>
           <a href="mailto:yigitcan@ucsb.edu">yigitcan@ucsb.edu</a>
           <br>
-          <a href="/Kaya_Yigitcan_CV_Public.pdf">CV</a>
-          · <a href="/Kaya_Yigitcan_RS_4pages.pdf">Research</a>
-          · <a href="/Kaya_Yigitcan_TS_3pages.pdf">Teaching</a>
+          <a href="/assets/docs/Kaya_Yigitcan_CV_Public.pdf">CV</a>
+          · <a href="/assets/docs/Kaya_Yigitcan_RS_4pages.pdf">Research</a>
+          · <a href="/assets/docs/Kaya_Yigitcan_TS_3pages.pdf">Teaching</a>
         </div>
 
         <br><br> -->
+
+        <div
+          style="border: 2px solid #c00; background-color: #ffecec; padding: 12px; border-radius: 6px; text-align: center; font-size: 1.05em;">
+          <strong style="color:#c00;">I'm excited to announce that I'll be joining Indiana University Bloomington CS
+            Department as an assistant professor in Spring 2027! </strong>
+        </div>
+
+        <br><br>
+
+
         <p>
           I am a postdoctoral fellow at UCSB’s <a href="https://seclab.cs.ucsb.edu/">SecLab</a>, working with
           <a href="https://sites.cs.ucsb.edu/~vigna/">Giovanni Vigna</a> and
@@ -101,8 +149,18 @@
         </p>
 
         <p>
-          I go by <strong>Can</strong>, pronounced like <i>'John'</i> (d͡ʒan).
+          My name is pronounced <i>Yee-it-JAHN</i>
+          <button class="pronunciation-button" type="button" data-audio="audio-yigitcan"
+            aria-label="Play pronunciation of Yiğitcan in Turkish">
+            🔊 Yiğitcan
+          </button>.
+          I usually go by Can, pronounced <i>JAHN</i>, with a soft “J” sound
+          <button class="pronunciation-button" type="button" data-audio="audio-can"
+            aria-label="Play pronunciation of Can in Turkish">
+            🔊 Can
+          </button>.
         </p>
+
 
       </div>
     </div>
@@ -277,7 +335,8 @@
       </li><br>
 
       <li> <strong><a id="p11">(11)</a></strong> Kamala Varma, Arda Numanoğlu, <u>Yigitcan Kaya</u>, Tudor Dumitras: <a
-          href="https://ieeexplore.ieee.org/document/10516651"><strong>Understanding, Uncovering, and Mitigating the Causes of Inference
+          href="https://ieeexplore.ieee.org/document/10516651"><strong>Understanding, Uncovering, and Mitigating the
+            Causes of Inference
             Slowdown for Language Models</strong></a> (SaTML'24)
         <button data-toggle="collapse" data-target="#satmlslow" , class="btn">Abstract</button>
         <div id="satmlslow" class="collapse">
