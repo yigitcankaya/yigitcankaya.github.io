@@ -276,6 +276,79 @@ ul > br {
   color: var(--warm) !important;
 }
 
+.publication-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 16px;
+  padding: 13px 15px;
+  background: #f7f9fb;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.publication-filter__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.publication-filter__button {
+  min-height: 34px;
+  padding: 6px 13px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.2;
+  transition: color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.publication-filter__button:hover,
+.publication-filter__button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(24, 35, 51, 0.1);
+}
+
+.publication-filter__button.venue-conference {
+  color: #1e6b57;
+}
+
+.publication-filter__button.venue-conference.is-active {
+  background: #1e6b57;
+}
+
+.publication-filter__button.venue-workshop {
+  color: #a04f16;
+}
+
+.publication-filter__button.venue-workshop.is-active {
+  background: #a04f16;
+}
+
+.publication-filter__button.venue-preprint {
+  color: #7052a5;
+}
+
+.publication-filter__button.venue-preprint.is-active {
+  background: #7052a5;
+}
+
+.publication-filter__button.venue-all {
+  color: #526173;
+}
+
+.publication-filter__button.venue-all.is-active {
+  background: #526173;
+}
+
+.publication-filter__button.is-active {
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 35, 50, 0.12);
+}
+
 #publications + .container > ul > li {
   margin: 0 0 14px;
   padding: 16px 18px;
@@ -286,8 +359,19 @@ ul > br {
 }
 
 #publications + .container > ul > li:hover {
-  border-left-color: var(--warm);
   box-shadow: 0 10px 24px rgba(24, 35, 51, 0.06);
+}
+
+#publications + .container > ul > li.venue-conference {
+  border-left-color: #1e6b57;
+}
+
+#publications + .container > ul > li.venue-workshop {
+  border-left-color: #a04f16;
+}
+
+#publications + .container > ul > li.venue-preprint {
+  border-left-color: #7052a5;
 }
 
 #publications + .container > ul > li.loading-publications {
@@ -295,7 +379,14 @@ ul > br {
   color: var(--muted);
 }
 
-#publications + .container > ul > li > strong:first-child {
+.publication-entry__header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+
+.publication-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -306,6 +397,47 @@ ul > br {
   background: var(--accent-soft);
   color: var(--accent-dark);
   font-size: 13px;
+}
+
+.publication-keyword {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 11px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.publication-keyword.keyword-ai-security {
+  background: #fbe9e7;
+  border-color: #e8b7b0;
+  color: #8b3026;
+}
+
+.publication-keyword.keyword-ai-for-security {
+  background: #e8f1fb;
+  border-color: #b6cee8;
+  color: #24598b;
+}
+
+.publication-keyword.keyword-ai-privacy {
+  background: #f1eafb;
+  border-color: #cfbce7;
+  color: #654393;
+}
+
+.publication-keyword.keyword-efficient-ai {
+  background: #edf6e8;
+  border-color: #bed8b2;
+  color: #3f6d30;
+}
+
+.publication-venue {
+  color: #526173;
+  font-weight: 650;
 }
 
 .collapse {
