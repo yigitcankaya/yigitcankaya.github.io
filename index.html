@@ -24,7 +24,7 @@
           const playFromStart = () => {
             audio.pause();
             audio.currentTime = 0;
-            audio.play().catch(() => {});
+            audio.play().catch(() => { });
           };
 
           if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
@@ -45,11 +45,11 @@
 
 
   <audio id="audio-yigitcan" preload="auto">
-    <source src="assets/audio/yigitcan-pronunciation.mp3" type="audio/mpeg">
+    <source src="assets/audio/yigitcan.m4a" type="audio/mpeg">
   </audio>
-  <audio id="audio-can" preload="auto">
-    <source src="assets/audio/can-pronunciation.mp3" type="audio/mpeg">
-  </audio>
+  <!-- <audio id="audio-can" preload="auto">
+    <source src="assets/audio/can.m4a" type="audio/mpeg">
+  </audio> -->
 
 
 
@@ -72,7 +72,15 @@
   </nav>
 
   <div class="container intro-section">
-    <h2> Yigitcan Kaya</h2>
+    <h2> Yigitcan Kaya </h2>
+
+    <strong>Pronunciation:</strong> <i>Yee-it-JAHN</i>
+    <button class="pronunciation-button" type="button" data-audio="audio-yigitcan"
+      aria-label="Play pronunciation of Yiğitcan in Turkish">
+      🔊 Yiğitcan
+    </button>
+    <br>
+    <strong>Pronouns:</strong> He/Him
     <hr>
     <div class="row">
       <div class="col-xs-4 text-left">
@@ -149,7 +157,7 @@
           placements in leading programs.
         </p>
 
-        <p>
+        <!-- <p>
           My name is pronounced <i>Yee-it-JAHN</i>
           <button class="pronunciation-button" type="button" data-audio="audio-yigitcan"
             aria-label="Play pronunciation of Yiğitcan in Turkish">
@@ -160,7 +168,7 @@
             aria-label="Play pronunciation of Can in Turkish">
             🔊 Can
           </button>.
-        </p>
+        </p> -->
 
 
       </div>
@@ -221,7 +229,7 @@
       <li><b>Conference PC:</b> <a href="https://https://www.sigsac.org/ccs/CCS2026/"
           target="_blank"><strong>CCS'26</strong></a>, <a href="https://satml.org"
           target="_blank"><strong>SaTML'{25,26}</strong></a>, <a href="https://sp2025.ieee-security.org"
-          target="_blank"><strong>IEEE S&P'{25,26}</strong></a>, <a
+          target="_blank"><strong>IEEE S&P'{25,26,27}</strong></a>, <a
           href="https://www.usenix.org/conference/usenixsecurity24" target="_blank"><strong>USENIX
             Security'24</strong></a>, <a href="https://www.acsac.org/" target="_blank"><strong>ACSAC'24</strong></a>, <a
           href="https://raid2024.github.io/" target="_blank"><strong>RAID'{24,25}</strong></a> </li>
@@ -317,7 +325,8 @@
         <strong>Applied Scientist Intern</strong><br>
         <a href="https://aws.amazon.com/identity/" target="_blank">Amazon Web Services (AWS) Identity</a> <br>
         September 2020 - December 2020<br>
-        <em> Conducted research on ML explanation tools and ML model testing methodologies towards using ML to aid access
+        <em> Conducted research on ML explanation tools and ML model testing methodologies towards using ML to aid
+          access
           and permission management efforts of AWS customers. </em>
       </li>
 
