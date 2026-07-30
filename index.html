@@ -43,13 +43,9 @@
 
 <body>
 
-
   <audio id="audio-yigitcan" preload="auto">
     <source src="assets/audio/yigitcan.m4a" type="audio/mpeg">
   </audio>
-  <!-- <audio id="audio-can" preload="auto">
-    <source src="assets/audio/can.m4a" type="audio/mpeg">
-  </audio> -->
 
 
 
@@ -81,7 +77,6 @@
       🔊 Yiğitcan
     </button>
     <br>
-    <strong>Pronouns:</strong> He/Him
 
     <hr>
     <div class="row">
@@ -109,7 +104,11 @@
             Department as an assistant professor in Spring 2027! </strong>
         </div>
 
-        <br><br>
+        <!-- <a class="group-site-link" href="group/">
+          Visit my research group website <span aria-hidden="true">→</span>
+        </a>
+
+        <br><br> -->
 
 
         <p>
@@ -158,21 +157,6 @@
           (<a href="#p7">7</a>, <a href="#p9">9</a>, <a href="#p13">13</a>, <a href="#p16">16</a>) and seven PhD
           placements in leading programs.
         </p>
-
-        <!-- <p>
-          My name is pronounced <i>Yee-it-JAHN</i>
-          <button class="pronunciation-button" type="button" data-audio="audio-yigitcan"
-            aria-label="Play pronunciation of Yiğitcan in Turkish">
-            🔊 Yiğitcan
-          </button>.
-          I usually go by Can, pronounced <i>JAHN</i>, with a soft “J” sound
-          <button class="pronunciation-button" type="button" data-audio="audio-can"
-            aria-label="Play pronunciation of Can in Turkish">
-            🔊 Can
-          </button>.
-        </p> -->
-
-
       </div>
     </div>
   </div>
@@ -184,13 +168,12 @@
     <h4>News</h4>
     <hr>
     <ul>
+      <li> <span style="color:red;"><strong>07/30/2026</strong> - 2 new papers in ACM CCS'26! </span> On attributing
+        JavaScript injection campaigns to vulnerable WordPress plugins <strong><a href="#p22">(22)</a></strong> and
+        LLM-driven fuzzing of JavaScript engines in PDF readers <strong><a href="#p23">(23)</a></strong>. </li><br>
       <li> <span style="color:red;"><strong>09/25/2025</strong> - 1 new paper in IEEE S&P'26! </span> On prompt
         injection risks in third-party AI chatbot plugins on the web! <strong><a href="#p16">(16)</a></strong>. </span>
       </li><br>
-      <!-- <li> <span style="color:red;"><strong>09/10/2025</strong> - I will serve on the Program Committee of ACM
-          Conference on Computer and Communications Security (CCS) 2026!</span> </li><br>
-      <li> <span style="color:red;"><strong>02/29/2025</strong> - I will serve on the Program Committees of IEEE
-          Symposium on Security and Privacy (S&P) 2026 and RAID'25!</span> </li><br> -->
       <li> <span style="color:red;"><strong>01/23/2025</strong> - 1 new paper in NAACL'25! </span> On poisoning attacks
         against large language models that get them to produce copyrighted content! <strong><a
             href="#p15">(15)</a></strong>. </span> </li><br>
@@ -198,12 +181,6 @@
         challenges and pitfalls in behavior-based malware detection in the real world <strong><a
             href="#p14">(14)</a></strong>. Read more about this project on our </a><a
           href="https://malwaredetectioninthewild.github.io/"><strong>[Project Website]</strong></a>.</span> </li><br>
-      <!-- <li> <span style="color:red;"><strong>09/16/2024</strong> - I will serve on the Program Committee of IEEE
-          Conference on Secure and Trustworthy Machine Learning (SATML) 2025!</span></li><br>
-      <li> <span style="color:red;"><strong>06/05/2024</strong> - I will serve on the Program Committee of IEEE
-          Symposium on Security and Privacy (S&P) 2025!</span> </li><br>
-      <li> <span style="color:red;"><strong>02/29/2024</strong> - I will serve on the Program Committees of USENIX
-          Security'24, ACSAC'24 and RAID'24!</span> </li><br> -->
       <li> <span style="color:red;"><strong>01/01/2024</strong> - 2 new papers in ICLR'24!</span> On enabling certified
         robustness for adversarial attacks against raw-byte-based malware detectors <strong><a
             href="#p12">(12)</a></strong> and studying the tensions between group robustness and resilience against
@@ -217,10 +194,14 @@
     <h4> Publications --- <a href="https://scholar.google.com/citations?user=tPiXuV0AAAAJ">Google Scholar</a></h4>
     <div class="publication-filter" aria-label="Filter publications by venue; Conference is selected by default">
       <div class="publication-filter__options" role="group" aria-label="Venue type">
-        <button class="publication-filter__button venue-conference is-active" type="button" data-venue-filter="Conference" aria-pressed="true">Conference</button>
-        <button class="publication-filter__button venue-workshop" type="button" data-venue-filter="Workshop" aria-pressed="false">Workshop</button>
-        <button class="publication-filter__button venue-preprint" type="button" data-venue-filter="Preprint" aria-pressed="false">Preprint</button>
-        <button class="publication-filter__button venue-all" type="button" data-venue-filter="All" aria-pressed="false">All</button>
+        <button class="publication-filter__button venue-conference is-active" type="button"
+          data-venue-filter="Conference" aria-pressed="true">Conference</button>
+        <button class="publication-filter__button venue-workshop" type="button" data-venue-filter="Workshop"
+          aria-pressed="false">Workshop</button>
+        <button class="publication-filter__button venue-preprint" type="button" data-venue-filter="Preprint"
+          aria-pressed="false">Preprint</button>
+        <button class="publication-filter__button venue-all" type="button" data-venue-filter="All"
+          aria-pressed="false">All</button>
       </div>
     </div>
     <hr>
@@ -236,13 +217,14 @@
     <h4> Academic Service </h4>
     <hr>
     <ul>
-      <li><b>Conference PC:</b> <a href="https://https://www.sigsac.org/ccs/CCS2026/"
+      <li><b>Conference PC:</b> <a href="https://www.sigsac.org/ccs/CCS2026/"
           target="_blank"><strong>CCS'26</strong></a>, <a href="https://satml.org"
-          target="_blank"><strong>SaTML'{25,26}</strong></a>, <a href="https://sp2025.ieee-security.org"
+          target="_blank"><strong>SaTML'{25,26}</strong></a>, <a href="https://sp2027.ieee-security.org"
           target="_blank"><strong>IEEE S&P'{25,26,27}</strong></a>, <a
-          href="https://www.usenix.org/conference/usenixsecurity24" target="_blank"><strong>USENIX
-            Security'24</strong></a>, <a href="https://www.acsac.org/" target="_blank"><strong>ACSAC'24</strong></a>, <a
-          href="https://raid2024.github.io/" target="_blank"><strong>RAID'{24,25}</strong></a> </li>
+          href="https://www.usenix.org/conference/usenixsecurity27" target="_blank"><strong>USENIX
+            Security'{24,27}</strong></a>, <a href="https://www.acsac.org/"
+          target="_blank"><strong>ACSAC'24</strong></a>, <a href="https://raid2025.github.io/"
+          target="_blank"><strong>RAID'{24,25}</strong></a> </li>
       <li><b>Workshop PC:</b> <a href="https://dynn-icml2022.github.io/" target="_blank"><strong>ICML'22 Workshop on
             Dynamic Neural Networks</strong></a>, <a href="https://advml-frontier.github.io/"
           target="_blank"><strong>ICML'22 Workshop on New Frontiers in Adversarial Machine Learning</strong></a>, <a
@@ -256,11 +238,6 @@
       <li><b>Journal Reviewer:</b> Computers&Security ('24), IEEE TDSC ('24), ACM TOPS ('20) </li>
       <li><b>External Reviewer:</b> USENIX{'22 '18}, CCS{'18, '17'}, NDSS{'20, '19, '18}, IEEE S&amp;P'18, RAID{'19,
         '18}</li>
-      <!-- <li> In 2018, I supervised an <a href="https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=5517"
-          target="_blank">REU</a> (Research Experiences for Undergraduates) group and guided another one on two
-        different projects regarding the security of deep learning. </li>
-      <li> In 2018, I organized a <a href="https://talks.cs.umd.edu/lists/19" target="_blank">security reading group</a>
-        in the Maryland Cybersecurity Center. </li> -->
     </ul>
   </div>
 
@@ -367,7 +344,7 @@
   <br><br>
 
   <footer class="container-fluid text-center">
-    <p><em>Last Updated July 18, 2026.</em></p>
+    <p><em>Last Updated July 30, 2026.</em></p>
     <br>
   </footer>
 

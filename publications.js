@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ? publications
         : publications.filter((publication) => publication.venue_type === activeFilter);
 
-      renderPublications(list, visiblePublications);
-      updatePublicationReferences(visiblePublications);
+      renderPublications(list, visiblePublications, publications);
+      updatePublicationReferences(publications);
     };
 
     const setFilter = (venueType) => {
@@ -25,6 +25,41 @@ document.addEventListener('DOMContentLoaded', () => {
       updateList();
     };
 
+    const scrollToPublication = (publication, { updateHistory = false, behavior = 'smooth' } = {}) => {
+      if (activeFilter !== 'All' && publication.venue_type !== activeFilter) {
+        setFilter(publication.venue_type);
+      }
+
+      const hash = `#${publication.id}`;
+      if (updateHistory && window.location.hash !== hash) {
+        window.history.pushState(null, '', hash);
+      }
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const target = document.getElementById(publication.id);
+          if (!target) return;
+
+          const navigation = document.querySelector('.site-nav');
+          const navigationPosition = navigation ? window.getComputedStyle(navigation).position : '';
+          const navigationOffset = navigation && ['fixed', 'sticky'].includes(navigationPosition)
+            ? navigation.getBoundingClientRect().height
+            : 0;
+          const targetTop = window.scrollY + target.getBoundingClientRect().top - navigationOffset - 16;
+
+          window.scrollTo({
+            top: Math.max(0, targetTop),
+            behavior
+          });
+        });
+      });
+    };
+
+    const navigateToHash = ({ updateHistory = false, behavior = 'smooth' } = {}) => {
+      const publication = publications.find(({ id }) => `#${id}` === window.location.hash);
+      if (publication) scrollToPublication(publication, { updateHistory, behavior });
+    };
+
     filter.addEventListener('click', (event) => {
       const button = event.target.closest('[data-venue-filter]');
       if (button) setFilter(button.dataset.venueFilter);
@@ -35,12 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!reference) return;
 
       const target = publications.find((publication) => `#${publication.id}` === reference.getAttribute('href'));
-      if (target && activeFilter !== 'All' && target.venue_type !== activeFilter) {
-        setFilter(target.venue_type);
-      }
+      if (!target) return;
+
+      event.preventDefault();
+      scrollToPublication(target, { updateHistory: true });
     });
 
+    window.addEventListener('hashchange', () => navigateToHash());
+
     updateList();
+    navigateToHash({ behavior: 'auto' });
+    if (document.readyState !== 'complete') {
+      window.addEventListener('load', () => navigateToHash({ behavior: 'auto' }), { once: true });
+    }
   };
 
   if (window.location.protocol === 'file:' && Array.isArray(window.PUBLICATIONS)) {
@@ -70,10 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function renderPublications(list, publications) {
+function renderPublications(list, publications, allPublications) {
   list.innerHTML = '';
-  publications.forEach((publication, index) => {
-    const displayNumber = publications.length - index;
+  publications.forEach((publication) => {
+    const displayNumber = allPublications.length - allPublications.indexOf(publication);
     list.appendChild(renderPublication(publication, displayNumber));
   });
 }
@@ -90,6 +132,7 @@ function updatePublicationReferences(publications) {
 
 function renderPublication(publication, displayNumber) {
   const item = document.createElement('li');
+  item.id = publication.id;
   item.className = `publication-entry venue-${publication.venue_type.toLowerCase()}`;
 
   const header = document.createElement('div');
@@ -97,10 +140,7 @@ function renderPublication(publication, displayNumber) {
 
   const number = document.createElement('strong');
   number.className = 'publication-number';
-  const anchor = document.createElement('a');
-  anchor.id = publication.id;
-  anchor.textContent = `(${displayNumber})`;
-  number.appendChild(anchor);
+  number.textContent = `(${displayNumber})`;
   header.appendChild(number);
 
   const keyword = document.createElement('span');
