@@ -281,6 +281,20 @@ ul > br {
   padding-left: 22px;
 }
 
+#news + .container .news-list {
+  max-height: 300px;
+  margin-bottom: 0;
+  padding-right: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+#news + .container .news-list:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
 #news + .container li::before,
 #service + .container li::before,
 #awards + .container li::before,

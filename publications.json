@@ -1,5 +1,21 @@
 [
   {
+    "id": "p24",
+    "authors": [
+      "Saad Ullah",
+      "Yigitcan Kaya",
+      "Christopher Kruegel",
+      "Giovanni Vigna",
+      "Gianluca Stringhini"
+    ],
+    "title": "SelfOp: An Optimization Algorithm for Self-Improving Security Agents",
+    "url": "https://arxiv.org/abs/2609.22792",
+    "venue": "IEEE S&P'27",
+    "venue_type": "Conference",
+    "keyword": "AI for Security",
+    "abstract": "LLM agents are increasingly used for security tasks: vulnerability discovery, exploit reproduction, and patch generation. Improving them at the model level demands expert demonstrations or computable rewards, which security tasks rarely offer: traces are costly, failures hard to diagnose, rewards sparse, and non-computable.\n\nEfforts thus shift to the harness and context, but manual tuning needs task-specific expertise and scales poorly, while automated methods rely on scarce ground truth, stronger optimizer models, or unguided propose-and-evaluate loops that reduce to costly trial and error.\n\nWe introduce SelfOp, an algorithm that automatically improves a frozen security agent's task context (instructions, skills, and reference documents), without modifying its execution harness and model weights. SelfOp casts context optimization as chain-rule-inspired textual gradient descent: from a single instance's outcome, it propagates error signals backward through the evaluator, the agent's trajectory, and the context artifacts that shaped its behavior, yielding per-instance textual gradients.\n\nGradients are accumulated across instances by clustering, ranking, and filtering, and committed only under cross-instance consensus. A convergence detector monitors the gradient signal itself and stops once the context has absorbed the generalizable information in the training data, without held-out validation data.\n\nWe evaluate SelfOp on CyberGym, a benchmark of real-world vulnerability reproduction tasks. With fewer than 200 training examples, SelfOp yields a 17-point self-improvement for GPT-5.4-mini (with Codex), enough to surpass the frontier GPT-5.4 baseline by 6 points, and an 18.5-point self-improvement for GPT-5.4 itself. The optimized skills also transfer across models, highlighting that SelfOp-optimized skills learn generalizable task knowledge not model-specific patterns."
+  },
+  {
     "id": "p23",
     "authors": [
       "Suyue Guo",

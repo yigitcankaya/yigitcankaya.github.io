@@ -14,6 +14,16 @@
   <script src="publications.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const newsList = document.querySelector('[data-news-list]');
+      if (newsList) {
+        const recentNewsItems = Array.from(newsList.children)
+          .filter((item) => item.matches('li[data-news-date]'))
+          .sort((first, second) => second.dataset.newsDate.localeCompare(first.dataset.newsDate))
+          .slice(0, 6);
+
+        newsList.replaceChildren(...recentNewsItems);
+      }
+
       document.querySelectorAll('.pronunciation-button').forEach((button) => {
         const audio = document.getElementById(button.dataset.audio);
         if (audio) audio.load();
@@ -167,24 +177,26 @@
   <div class="container">
     <h4>News</h4>
     <hr>
-    <ul>
-      <li> <span style="color:red;"><strong>07/30/2026</strong> - 2 new papers in ACM CCS'26! </span> On attributing
+    <ul class="news-list" data-news-list tabindex="0" aria-label="Six most recent news items">
+      <li data-news-date="2026-09-28"> <span style="color:red;"><strong>09/28/2026</strong> - 1 new paper in IEEE S&amp;P'27! </span> On SelfOp, an optimization algorithm for self-improving security agents <strong><a href="#p24">(24)</a></strong>. </li>
+      <li data-news-date="2026-07-30"> <span style="color:red;"><strong>07/30/2026</strong> - 2 new papers in ACM CCS'26! </span> On attributing
         JavaScript injection campaigns to vulnerable WordPress plugins <strong><a href="#p22">(22)</a></strong> and
-        LLM-driven fuzzing of JavaScript engines in PDF readers <strong><a href="#p23">(23)</a></strong>. </li><br>
-      <li> <span style="color:red;"><strong>09/25/2025</strong> - 1 new paper in IEEE S&P'26! </span> On prompt
+        LLM-driven fuzzing of JavaScript engines in PDF readers <strong><a href="#p23">(23)</a></strong>. </li>
+      <li data-news-date="2025-09-25"> <span style="color:red;"><strong>09/25/2025</strong> - 1 new paper in IEEE S&P'26! </span> On prompt
         injection risks in third-party AI chatbot plugins on the web! <strong><a href="#p16">(16)</a></strong>. </span>
-      </li><br>
-      <li> <span style="color:red;"><strong>01/23/2025</strong> - 1 new paper in NAACL'25! </span> On poisoning attacks
+      </li>
+      <li data-news-date="2025-01-23"> <span style="color:red;"><strong>01/23/2025</strong> - 1 new paper in NAACL'25! </span> On poisoning attacks
         against large language models that get them to produce copyrighted content! <strong><a
-            href="#p15">(15)</a></strong>. </span> </li><br>
-      <li> <span style="color:red;"><strong>01/22/2025</strong> - 1 new paper in SaTML'25! </span> On demystfying the
+            href="#p15">(15)</a></strong>. </span> </li>
+      <li data-news-date="2025-01-22"> <span style="color:red;"><strong>01/22/2025</strong> - 1 new paper in SaTML'25! </span> On demystfying the
         challenges and pitfalls in behavior-based malware detection in the real world <strong><a
             href="#p14">(14)</a></strong>. Read more about this project on our </a><a
-          href="https://malwaredetectioninthewild.github.io/"><strong>[Project Website]</strong></a>.</span> </li><br>
-      <li> <span style="color:red;"><strong>01/01/2024</strong> - 2 new papers in ICLR'24!</span> On enabling certified
+          href="https://malwaredetectioninthewild.github.io/"><strong>[Project Website]</strong></a>.</span> </li>
+      <li data-news-date="2024-01-01"> <span style="color:red;"><strong>01/01/2024</strong> - 2 new papers in ICLR'24!</span> On enabling certified
         robustness for adversarial attacks against raw-byte-based malware detectors <strong><a
             href="#p12">(12)</a></strong> and studying the tensions between group robustness and resilience against
-        poisoning attacks <strong><a href="#p13">(13)</a></strong>. </li><br>
+        poisoning attacks <strong><a href="#p13">(13)</a></strong>. </li>
+    </ul>
   </div>
 
   <br>
@@ -344,7 +356,7 @@
   <br><br>
 
   <footer class="container-fluid text-center">
-    <p><em>Last Updated July 30, 2026.</em></p>
+    <p><em>Last Updated September 28, 2026.</em></p>
     <br>
   </footer>
 
