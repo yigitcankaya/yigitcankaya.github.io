@@ -161,6 +161,13 @@ hr {
   color: #8d2f1a !important;
 }
 
+.announcement-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #056bd9;
+  font-weight: 750;
+}
+
 .group-site-link {
   display: inline-flex;
   min-height: 42px;
