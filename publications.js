@@ -1,10 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
   const list = document.getElementById('publication-list');
   const filter = document.querySelector('.publication-filter');
-  if (!list || !filter) return;
+  const toggle = document.querySelector('[data-publication-toggle]');
+  if (!list || !filter || !toggle) return;
 
   const render = (publications) => {
     let activeFilter = 'Conference';
+    let isExpanded = false;
+    let visiblePublicationCount = 0;
+    const collapsedEntryCount = 6;
+
+    const setCollapsedHeight = () => {
+      const entries = Array.from(list.querySelectorAll('.publication-entry'));
+      if (entries.length <= collapsedEntryCount) {
+        list.style.removeProperty('--publication-collapsed-height');
+        return;
+      }
+
+      const visibleEntries = entries.slice(0, collapsedEntryCount);
+      const collapsedHeight = visibleEntries.reduce((height, entry) => {
+        const styles = window.getComputedStyle(entry);
+        return height + entry.offsetHeight + parseFloat(styles.marginBottom || 0);
+      }, 0);
+      list.style.setProperty('--publication-collapsed-height', `${Math.ceil(collapsedHeight)}px`);
+    };
+
+    const updateToggle = () => {
+      const hasMorePublications = visiblePublicationCount > collapsedEntryCount;
+      const label = toggle.querySelector('[data-publication-toggle-label]');
+      const icon = toggle.querySelector('.fa');
+
+      toggle.hidden = !hasMorePublications;
+      toggle.setAttribute('aria-expanded', String(isExpanded));
+      if (label) label.textContent = isExpanded ? 'Show fewer publications' : 'Show all publications';
+      if (icon) {
+        icon.classList.toggle('fa-chevron-down', !isExpanded);
+        icon.classList.toggle('fa-chevron-up', isExpanded);
+      }
+
+      list.classList.toggle('is-collapsed', hasMorePublications && !isExpanded);
+      list.setAttribute('aria-label', hasMorePublications && !isExpanded
+        ? 'Publications; showing six at a time, scroll to browse more'
+        : 'Publications; showing the complete filtered list');
+
+      requestAnimationFrame(setCollapsedHeight);
+    };
 
     const updateList = () => {
       const visiblePublications = activeFilter === 'All'
@@ -12,11 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
         : publications.filter((publication) => publication.venue_type === activeFilter);
 
       renderPublications(list, visiblePublications, publications);
+      visiblePublicationCount = visiblePublications.length;
+      list.scrollTop = 0;
+      updateToggle();
       updatePublicationReferences(publications);
     };
 
     const setFilter = (venueType) => {
       activeFilter = venueType;
+      isExpanded = false;
       filter.querySelectorAll('[data-venue-filter]').forEach((option) => {
         const isActive = option.dataset.venueFilter === activeFilter;
         option.classList.toggle('is-active', isActive);
@@ -36,10 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const target = document.getElementById(publication.id);
-          if (!target) return;
+        const target = document.getElementById(publication.id);
+        if (!target) return;
 
+        if (list.classList.contains('is-collapsed')) {
+          const listOffset = list.getBoundingClientRect().top;
+          const targetOffset = target.getBoundingClientRect().top;
+          list.scrollTo({
+            top: list.scrollTop + targetOffset - listOffset - 8,
+            behavior
+          });
+        }
+
+        requestAnimationFrame(() => {
           const navigation = document.querySelector('.site-nav');
           const navigationPosition = navigation ? window.getComputedStyle(navigation).position : '';
           const navigationOffset = navigation && ['fixed', 'sticky'].includes(navigationPosition)
@@ -63,6 +116,16 @@ document.addEventListener('DOMContentLoaded', () => {
     filter.addEventListener('click', (event) => {
       const button = event.target.closest('[data-venue-filter]');
       if (button) setFilter(button.dataset.venueFilter);
+    });
+
+    toggle.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      if (!isExpanded) list.scrollTop = 0;
+      updateToggle();
+    });
+
+    window.addEventListener('resize', () => {
+      if (!isExpanded) setCollapsedHeight();
     });
 
     document.addEventListener('click', (event) => {

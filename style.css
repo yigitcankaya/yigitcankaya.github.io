@@ -321,6 +321,45 @@ ul > br {
   color: var(--warm) !important;
 }
 
+.publications-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.scholar-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  border: 1px solid #9acdc7;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.2;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.scholar-button:hover,
+.scholar-button:focus {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(0, 109, 119, 0.18);
+}
+
+.scholar-button .fa-external-link {
+  font-size: 0.78em;
+  opacity: 0.78;
+}
+
 .publication-filter {
   display: flex;
   flex-wrap: wrap;
@@ -392,6 +431,58 @@ ul > br {
 .publication-filter__button.is-active {
   color: #fff;
   box-shadow: 0 0 0 3px rgba(20, 35, 50, 0.12);
+}
+
+.publication-list {
+  margin-bottom: 0;
+}
+
+.publication-list.is-collapsed {
+  max-height: var(--publication-collapsed-height, 900px);
+  padding-right: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.publication-list:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.publication-list-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.publication-toggle {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 17px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.2;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.publication-toggle:hover,
+.publication-toggle:focus {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(0, 109, 119, 0.16);
+}
+
+.publication-toggle[hidden] {
+  display: none;
 }
 
 #publications + .container > ul > li {

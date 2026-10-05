@@ -207,7 +207,15 @@
 
   <a id="publications"></a>
   <div class="container">
-    <h4> Publications --- <a href="https://scholar.google.com/citations?user=tPiXuV0AAAAJ">Google Scholar</a></h4>
+    <div class="publications-heading">
+      <h4>Publications</h4>
+      <a class="scholar-button" href="https://scholar.google.com/citations?user=tPiXuV0AAAAJ" target="_blank"
+        rel="noopener" aria-label="View Yigitcan Kaya's Google Scholar profile (opens in a new tab)">
+        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        <span>Google Scholar</span>
+        <i class="fa fa-external-link" aria-hidden="true"></i>
+      </a>
+    </div>
     <div class="publication-filter" aria-label="Filter publications by venue; Conference is selected by default">
       <div class="publication-filter__options" role="group" aria-label="Venue type">
         <button class="publication-filter__button venue-conference is-active" type="button"
@@ -221,9 +229,17 @@
       </div>
     </div>
     <hr>
-    <ul id="publication-list">
+    <ul id="publication-list" class="publication-list is-collapsed" tabindex="0"
+      aria-label="Publications; showing six at a time, scroll to browse more">
       <li class="loading-publications">Loading publications...</li>
     </ul>
+    <div class="publication-list-actions">
+      <button class="publication-toggle" type="button" data-publication-toggle aria-controls="publication-list"
+        aria-expanded="false" hidden>
+        <span data-publication-toggle-label>Show all publications</span>
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 
   <br>
