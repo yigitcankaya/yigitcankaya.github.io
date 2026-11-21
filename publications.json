@@ -1,5 +1,37 @@
 [
   {
+    "id": "p26",
+    "authors": [
+      "Kayshav Bhardwaj",
+      "Yigitcan Kaya",
+      "Christopher Kruegel",
+      "Giovanni Vigna"
+    ],
+    "title": "LLMs Leak Secrets Through Unrelated Outputs",
+    "url": "https://openreview.net/forum?id=In3jVmFJBO",
+    "venue": "NeurIPS'26 InfPriv Workshop",
+    "venue_type": "Workshop",
+    "keyword": "AI Privacy",
+    "abstract": "A language model need not repeat a secret to leak it. We place a four-digit PIN in Qwen3-8B's system prompt, ask for unrelated number lists, and rank candidate PINs by the observed outputs' teacher-forced likelihood. From one list, five-way detection reaches 77.2% (chance: 20%) and remains above 73% after removing lists that contain the PIN, a digit permutation, or a Hamming-distance-1 neighbor. With approximately 20 strictly filtered lists, the attack recovers 24 of 50 held-out PINs from all 10,000 possibilities (chance: 0.01%); 36 of 50 appear in the top five. In same-model tests, seven-way detection reaches 68.6% for Qwen3-8B, 59.1% for Phi-3.5-Mini, and 44.3% for OLMo-2-7B (chance: 14.3%). Stronger secrecy prompts reduce detection but do not eliminate it. The attack assumes local access to the model's weights and token probabilities, a known secret format, and repeated outputs for full recovery. Even under this narrow threat model, lexical filtering does not remove inference-time leakage through unrelated generations."
+  },
+  {
+    "id": "p25",
+    "authors": [
+      "Vinuri Bandara",
+      "Yigitcan Kaya",
+      "Juan Tapiador",
+      "Christopher Kruegel",
+      "Giovanni Vigna",
+      "Narseo Vallina Rodriguez"
+    ],
+    "title": "User-denied, System-approved: A Security Analysis of OEM Subversions on Android’s Access Control",
+    "url": null,
+    "venue": "NDSS'27",
+    "venue_type": "Conference",
+    "keyword": "AI for Security",
+    "abstract": "Android's permission model offers two core guarantees governing access to sensitive resources and data: access requires explicit user consent, and permissions should remain revocable. However, Original Equipment Manufacturers (OEMs) can customize the permission-enforcement logic of the Android Open Source Project (AOSP) in ways that undermine both security guarantees. By analyzing 5,205 firmware images from 70 major Android OEMs spanning Android versions 12–15, we identify privilege deviations from AOSP across 28 OEMs using a multi-stage LLM-assisted static analysis pipeline. We classify these deviations into two categories: (i) *Consent Subversion*, where dangerous permissions are silently pre-granted to specific packages at boot without explicit user consent; and (ii) *Revocability Subversion*, where access is enforced through lower-level framework mechanisms outside Android's user-facing permission model, making the resulting access non-revocable through standard user controls. In many cases, these deviations take the form of OEM-defined allowlists that grant selected applications privileged access to sensitive data and resources outside Android's standard permission workflow, enabling three distinct scenarios that we dynamically validate on production devices. First, an OEM-allowlisted application (app), either pre-installed or installed by users from an app store, can directly access sensitive resources without following Android's standard permission workflow. Second, third-party SDKs embedded within an allowlisted app inherit the same OS-level access because Android enforces privileges at the process level, with no separation between first- and third-party code. Third, because 98.7% of the 707 expert-confirmed deviations rely only on package-name checks without verifying the app’s signing certificate or other stronger identity properties, any actor capable of impersonating an allowlisted identity can obtain the same privilege. Our study confirms that these customizations are not isolated implementation bugs, but systemic OEM-level customizations that benefit third parties like ad-tech firms."
+  },
+  {
     "id": "p24",
     "authors": [
       "Saad Ullah",
@@ -28,7 +60,7 @@
       "Giovanni Vigna"
     ],
     "title": "From Documentation to Zero-day Vulnerabilities: LLM-Driven Fuzzing of JavaScript Engines in PDF Readers",
-    "url": null,
+    "url": "https://arxiv.org/pdf/2608.06641",
     "venue": "ACM CCS'26",
     "venue_type": "Conference",
     "keyword": "AI for Security",
@@ -47,10 +79,16 @@
       "Giovanni Vigna"
     ],
     "title": "From Payload to Plugin: Web-Scale Ecosystem Attribution of JavaScript Injection Campaigns",
-    "url": null,
-    "venue": "ACM CCS'26",
+    "url": "https://sites.cs.ucsb.edu/~chris/research/doc/ccs26_plugin.pdf",
+    "venue": "ACM CCS'26, Distinguished Paper Award",
     "venue_type": "Conference",
     "keyword": "AI for Security",
+    "links": [
+      {
+        "label": "CCS 2026 Distinguished Paper Award",
+        "url": "https://www.sigsac.org/ccs/CCS2026/program/awards.html"
+      }
+    ],
     "abstract": "External security analysts monitoring content management system (CMS) websites for compromise often lack backend access. From the frontend alone, they can detect malicious JavaScript injections and fingerprint installed plugins, but cannot link the two to identify the root cause of compromise---the vulnerable plugin that enabled the breach. As a result, site maintainers often remove visible payloads while leaving the underlying vulnerability unpatched, creating a risk of rapid reinfection. Prior work has studied malicious JavaScript detection and CMS ecosystem security in isolation, without a systematic way to bridge this gap at scale.\n\nWe present a large-scale measurement study that connects front-end-observable injections to their likely root causes in the WordPress ecosystem by comparing plugin prevalence across victim and non-victim website populations. Over 84 days, we monitor 850,000 WordPress domains, use cross-snapshot JavaScript diffs to identify candidate injections, cluster behavioral traces into campaigns, and apply enrichment analysis to recover likely exploited components at the plugin:version level. This process identifies 20 campaigns spanning 13 behavioral families and affecting 1,160 sites, of which 18 campaigns remain entirely undetected by VirusTotal during the study period. Guided by the components identified through our analysis, we uncover three previously unreported vulnerabilities in popular WordPress plugins, develop proof-of-vulnerability exploits, and report them to Wordfence under coordinated disclosure. We additionally release all extracted Indicators of Compromise via AlienVault OTX to support further research and defense."
   },
   {

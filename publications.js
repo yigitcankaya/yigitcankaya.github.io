@@ -252,9 +252,11 @@ function renderPublication(publication, displayNumber) {
   button.textContent = 'Abstract';
   item.appendChild(button);
 
-  (publication.links || []).forEach((link) => {
+  const extraLinkColors = ['#c2410c', '#2563eb', '#7b2cbf', '#006d5b', '#a61e4d'];
+  (publication.links || []).forEach((link, index) => {
     item.appendChild(document.createTextNode(' '));
     const extra = document.createElement('a');
+    extra.style.color = extraLinkColors[index % extraLinkColors.length];
     extra.href = link.url;
     extra.target = '_blank';
     extra.rel = 'noopener';
